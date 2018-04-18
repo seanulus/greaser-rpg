@@ -1,12 +1,27 @@
 import { Character } from './../src/rpg.js';
 
+
+
 describe('Character', function() {
 
+  let character;
+
+  beforeEach(function() {
+    character = new Character(10, 10, 10, 10);
+  })
+
   it('should test if the character has stats', function() {
-    let character = new Character(2,4,5,6);
-    expect(character.strength).toEqual(2);
-    expect(character.attitude).toEqual(4);
-    expect(character.intelligence).toEqual(5);
-    expect(character.getup).toEqual(6);
+    expect(character.strength).toEqual(10);
+    expect(character.attitude).toEqual(10);
+    expect(character.intelligence).toEqual(10);
+    expect(character.getup).toEqual(10);
+  });
+
+  it('should test if characters stats are changed', function() {
+    expect(character.toSmoke()).toEqual(8)
+  });
+
+  it('should raise strength and lower intelligence', function() {
+    expect(character.toGain()).toEqual(8, 12);
   });
 });
