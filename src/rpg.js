@@ -4,6 +4,8 @@ export class Character {
     this.attitude = attitude;
     this.intelligence = intelligence;
     this.getup = getup;
+    this.level = 1;
+    this.exp = 0;
   }
 
   strengthVal() {
@@ -54,10 +56,38 @@ export class Character {
     }
     return this.getup;
   }
-  toSmoke() {
+  minusStrength() {
+    return this.strength -= 2;
+  }
+  plusStrength() {
+    return this.strength += 2;
+  }
+  minusIntel() {
     return this.intelligence -= 2;
   }
-  toGain() {
-    return ((this.strength += 2) && (this.intelligence -= 2));
+  plusIntel() {
+    return this.intelligence += 2;
+  }
+  minusAtt() {
+    return this.attitude -= 2;
+  }
+  plusAtt() {
+    return this.attitude += 2;
+  }
+  minusGet() {
+    return this.getup -= 2;
+  }
+  plusGet() {
+    return this.getup += 2;
+  }
+  levelUp() {
+    if (this.exp < 100) {
+      this.exp += 50;
+    } else {
+      this.exp = 0;
+      this.level += 1;
+    }
+    return this.exp;
+    return this.level;
   }
 }

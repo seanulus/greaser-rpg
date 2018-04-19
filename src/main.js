@@ -29,13 +29,14 @@ $(document).ready(function() {
     $('#toke').click(function() {
       debugger;
       let character = new Character(strength, attitude, intelligence, getup);
-      intelligence = character.toSmoke();
+      intelligence = character.minusIntel()
+      attitude = character.plusAtt();
       $('#smokeChoice').hide();
       $('.football').show();
       $('#game').click(function() {
         debugger;
         let character = new Character(strength, attitude, intelligence, getup);
-        character = character.toGain();
+        character = character.plusStrength();
       });
     });
   });
